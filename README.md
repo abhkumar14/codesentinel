@@ -21,13 +21,6 @@ Spring Boot 3.3 + Spring AI + Ollama backend. Same React frontend as the Python 
 - Ollama with models pulled
 - Redis (optional — in-memory fallback used if unavailable)
 
-## Quick Start (macOS)
-
-```bash
-chmod +x start-macos.sh
-./start-macos.sh
-```
-
 ## Manual Start
 
 ### 1. Pull Ollama models
