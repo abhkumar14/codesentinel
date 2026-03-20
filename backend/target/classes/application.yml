@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: codesentinel
+
+  # ── File upload limits (for ZIP project scanning) ──────────────────────────
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 52MB
+
+  # Spring AI — Ollama
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: llama3
+        options:
+          temperature: 0.2
+          num-predict: 4096
+
+  # Redis (with in-memory fallback handled in AgentRegistry)
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 2000ms
+      connect-timeout: 2000ms
+
+# CORS
+cors:
+  allowed-origins:
+    - "http://localhost:5173"
+    - "http://localhost:3000"
+
+logging:
+  level:
+    com.codesentinel: DEBUG
+    org.springframework.ai: INFO
+    io.lettuce: WARN
